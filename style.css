@@ -270,7 +270,7 @@ header {
 		background-color:#fcfefc;
 		height: 10px;
 		width: 10px;
-		content: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Refresh_icon.svg/50px-Refresh_icon.svg.png)
+		content: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Refresh_icon.svg/25px-Refresh_icon.svg.png)
 	}
 	.temperature{
 		font-size: 30px;
@@ -305,11 +305,9 @@ header {
 	}
 	
 	.wrapper{
-	max-width: 100%;
-	margin: 0 auto;
-	padding: 0 5%;
-	background-color: #e0cfb1;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-}
+		max-width: 100%;
+	}
+	header {
+		max-height: 90px;
+	}
 }
