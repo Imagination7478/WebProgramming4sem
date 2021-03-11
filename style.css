@@ -4,10 +4,6 @@ html,body{
 	font-size: 100%;
 	line-height: 1;
 	font-size: 14px;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-	font-family: "NerisThin";
 	background-color: #d1b798;
 }
 
@@ -87,7 +83,6 @@ header {
 .geo_city{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-column-gap: 50px;
 	padding-bottom: 40px;
 	padding-top: 50px;
 	border-top-left-radius: 15px;
@@ -97,12 +92,8 @@ header {
 .geo_city_info{
 	position: relative;
 	background-color: #fcfefc;
-	background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
 	border-radius: 30px;
 	padding-left: 15px;
-	
 }
 
 
