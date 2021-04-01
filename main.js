@@ -1,7 +1,9 @@
 const api_key = 'bed950b3229a2b9bc8677bb8c28d5508';
-var lat;
-var lon;
-window.onload = function() {
+
+geoFindMe()
+
+
+function geoFindMe() {
   var startPos;
   var geoSuccess = function(position) {
 	startPos = position;
