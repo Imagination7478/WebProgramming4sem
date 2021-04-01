@@ -165,7 +165,10 @@ function displayFav(){
 function add_previous(){
 	if(localStorage.length !== 0){
 		for (let i = 0; i < localStorage.length; i++) {
-			add_city(localStorage.key(i));
+			if(localStorage.key(i) == 'extension'){}
+			else{
+				add_city(localStorage.key(i));
+			}
 		}
 	}
 	else{}	
