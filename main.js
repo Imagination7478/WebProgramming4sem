@@ -3,7 +3,7 @@ const api_key = 'bed950b3229a2b9bc8677bb8c28d5508';
 geoFindMe()
 var lat;
 var lon;
-window.onload = function() {
+window.onload = function(position) {
   var startPos;
   lat = document.getElementById('startLat').innerHTML = startPos.coords.latitude;
   lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
