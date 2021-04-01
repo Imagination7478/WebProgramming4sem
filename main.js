@@ -76,7 +76,6 @@ function add_favorites() {
 	if (city !== ''){
 		if( localStorage.getItem(city)){
 			window.alert('В списке уже есть такой город');
-
 		}
 		else{
 			localStorage.setItem(city, city);
@@ -84,7 +83,7 @@ function add_favorites() {
 		}
 	}
 	
-	document.querySelector('.favorites__form__input').value = "";
+	document.querySelector('.favorites_form_input').value = "";
 }
 
 function add_city(city){
@@ -141,12 +140,15 @@ function displayFav(){
 
 	clone.querySelector('button').onclick = () => {
     	fav_list.removeChild(clone);
-    	localStorage.removeItem(clone.querySelector(".favorites__item__header h3").textContent.toLowerCase());
+    	localStorage.removeItem(clone.querySelector(".favorites_item_header h3").textContent.toLowerCase());
 	};
 }
 
+console.log(localStorage)
 
-
+function refreshPage(){
+    window.location.reload();
+} 
 
 
 
