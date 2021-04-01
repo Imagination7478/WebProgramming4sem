@@ -7,8 +7,8 @@ window.onload = function() {
   var startPos;
   var geo = function(position) {
     startPos = position;
-    lat = document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-    lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+    lat = document.getElementById('startLat').textContent = startPos.coords.latitude;
+    lon = document.getElementById('startLon').textContent = startPos.coords.longitude;
   };
 }
 
