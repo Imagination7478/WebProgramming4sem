@@ -62,4 +62,7 @@ function convertWind (wind){
 	return result;
 }
 
+function refreshPage(){
+    window.location.reload();
+} 
 
