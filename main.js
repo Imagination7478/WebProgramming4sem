@@ -8,8 +8,8 @@ function geoFindMe() {
   var geoSuccess = function(position) {
 	startPos = position;
 	
-	var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
+	var lat = document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+    var lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
 	
 	console.log(lat);
 	console.log(lon);
