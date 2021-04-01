@@ -69,3 +69,85 @@ function convertWind (wind){
 
 	return result;
 }
+
+function add_favorites() {
+	let city = document.querySelector('.favorites_form_input').value.toLowerCase();
+
+	if (city !== ''){
+		if( localStorage.getItem(city)){
+			window.alert('В списке уже есть такой город');
+
+		}
+		else{
+			localStorage.setItem(city, city);
+			add_city(city);
+		}
+	}
+	
+	document.querySelector('.favorites__form__input').value = "";
+}
+
+function add_city(city){
+
+	city.toLowerCase();
+	
+	let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&lang=ru`;
+
+	fetch(api_city)
+		.then(function(resp) {return resp.json()})
+		.then(function(data){
+			
+			weather.city = data.name;
+			weather.temp = Math.round(data.main.temp - 273) + '&deg;C'; 
+			weather.wind = (data.wind.speed) + ' м/с, ' + convertWind(data.wind.deg);
+			weather.cloud = (data.clouds.all) + '%' ;
+			weather.pres = (data.main.pressure) + ' мм.рт.ст.' ;
+			weather.hum = (data.main.humidity) + '%' ;
+			weather.coord = '[' + (data.coord.lat) + ' , ' + (data.coord.lon) + ']' ;
+			weather.img = "https://openweathermap.org/img/wn/" + (data.weather[0].icon) + "@2x.png";
+
+		})
+		.then(function(){			
+			displayFav();
+		})		
+						
+}
+
+function displayFav(){
+	const template = document.querySelector('#favorite_item');
+
+	const City = template.content.querySelector(".favorites_item_title");
+	const Icon = template.content.querySelector(".item_img");
+	const Temp = template.content.querySelector(".f_temperature");
+	const Wind = template.content.querySelector(".wind");
+	const Cloud = template.content.querySelector(".cloud");
+	const Pres = template.content.querySelector(".pressure");
+	const Hum = template.content.querySelector(".humidity");
+	const Coord = template.content.querySelector(".coordinates");
+
+	
+	City.textContent = weather.city;
+	Icon.src = weather.img;
+	Temp.innerHTML = weather.temp;
+	Wind.innerHTML = weather.wind;
+	Cloud.innerHTML = weather.cloud;
+	Pres.innerHTML = weather.pres;
+	Hum.innerHTML = weather.hum;
+	Coord.innerHTML = weather.coord;
+
+	var clone = template.content.querySelector("li").cloneNode(true);
+	var fav_list = document.querySelector(".favorites_list");
+	fav_list.appendChild(clone);
+
+	clone.querySelector('button').onclick = () => {
+    	fav_list.removeChild(clone);
+    	localStorage.removeItem(clone.querySelector(".favorites__item__header h3").textContent.toLowerCase());
+	};
+}
+
+
+
+
+
+
+
