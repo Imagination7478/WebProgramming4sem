@@ -5,6 +5,7 @@ const weather = {};
 var main_city;
 var loader;
 window.onload = function() {
+	localStorage.extension = 'false';
     getGeo();
 }
 
@@ -161,9 +162,8 @@ function displayFav(){
 	};
 }
 
-console.log(localStorage)
-
 function add_previous(){
+	console.log(localStorage[1];
 	if(localStorage.length !== 0){
 		for (let i = 0; i < localStorage.length; i++) {
 			add_city(localStorage.key(i));
