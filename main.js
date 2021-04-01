@@ -1,14 +1,13 @@
 const api_key = 'bed950b3229a2b9bc8677bb8c28d5508';
 
 geoFindMe()
-var lat;
-var lon;
+
 window.onload = function() {
   var startPos;
   var geo = function(position) {
     startPos = position;
-    lat = document.getElementById('startLat').textContent = startPos.coords.latitude;
-    lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+    const lat = document.getElementById('startLat').textContent = startPos.coords.latitude;
+    const lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
   };
 }
 
