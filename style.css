@@ -21,6 +21,13 @@ header {
 	margin-bottom: 20px;
 }
 
+.loader{
+	display: none;
+	visibility: hidden;
+	position: relative;
+	left: 25%;
+}
+
 .refresh_button_text{
 	display: inline;
 }

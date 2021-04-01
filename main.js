@@ -1,13 +1,26 @@
 var result;
 const api_key = 'bed950b3229a2b9bc8677bb8c28d5508';
+const weather = {};
 
+var main_city;
+var loader;
 window.onload = function() {
-    result = document.getElementById('result');
+    getGeo();
+}
+
+function getGeo(){
+	main_city = document.querySelector('.geo_city');
+	loader = document.querySelector('.loader');
+	
+	main_city.style.display = "none";
+	loader.style.display = "grid";
+	loader.style.visibility = "visible";
 	
 	// Если функциональность геолокации доступна, 
 	// пытаемся определить координаты посетителя
 	if (navigator.geolocation) {
 		// Передаем две функции
+		
 		navigator.geolocation.getCurrentPosition(
 		            geolocationSuccess, geolocationFailure);
 	}
@@ -32,24 +45,28 @@ function geolocationSuccess(position) {
 			document.querySelector('.geo_city_img').src = "https://openweathermap.org/img/wn/" + (data.weather[0].icon) + "@2x.png";
 		}
 		)
+		
+		main_city.style.display = "grid";
+		loader.style.display = "none";
+		loader.style.visibility = "hidden";
 }
 
 function geolocationFailure(positionError) {
-	if(positionError == 1) {
-		result.innerHTML = "Вы решили не предоставлять данные о своем местоположении, " + 
-		        "но это не проблема. Мы больше не будем запрашивать их у вас.";
+	if(positionError.code == 1) {
+		window.alert("Вы решили не предоставлять данные о своем местоположении, " + 
+		        "но это не проблема. Мы больше не будем запрашивать их у вас.");
 	}
-	else if(positionError == 2) {
-		result.innerHTML = "Проблемы с сетью или нельзя связаться со службой определения " + 
-		        "местоположения по каким-либо другим причинам.";
+	else if(positionError.code == 2) {
+		window.alert("Проблемы с сетью или нельзя связаться со службой определения " + 
+		        "местоположения по каким-либо другим причинам.");
 	}
-	else if(positionError == 3) {
-		result.innerHTML = "He удалось определить местоположение " 
-		        + "в течение установленного времени. ";
+	else if(positionError.code == 3) {
+		window.alert("He удалось определить местоположение"
+		        + "в течение установленного времени.");
 
 	}
 	else {
-		result.innerHTML = "Загадочная ошибка.";
+		window.alert("Загадочная ошибка.");
 	}
 }
 
@@ -90,7 +107,7 @@ function add_city(city){
 
 	city.toLowerCase();
 	
-	let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&lang=ru`;
+	let api_city = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&lang=ru`;
 
 	fetch(api_city)
 		.then(function(resp) {return resp.json()})
@@ -113,10 +130,10 @@ function add_city(city){
 }
 
 function displayFav(){
-	const template = document.querySelector('#favorite_item');
+	const template = document.querySelector('#favorite_card');
 
-	const City = template.content.querySelector(".favorites_item_title");
-	const Icon = template.content.querySelector(".item_img");
+	const City = template.content.querySelector(".favorite_item_title h2");
+	const Icon = template.content.querySelector(".favorite_city_img");
 	const Temp = template.content.querySelector(".f_temperature");
 	const Wind = template.content.querySelector(".wind");
 	const Cloud = template.content.querySelector(".cloud");
@@ -135,20 +152,30 @@ function displayFav(){
 	Coord.innerHTML = weather.coord;
 
 	var clone = template.content.querySelector("li").cloneNode(true);
-	var fav_list = document.querySelector(".favorites_list");
+	var fav_list = document.querySelector(".favorite_list");
 	fav_list.appendChild(clone);
 
-	clone.querySelector('button').onclick = () => {
+	clone.querySelector('.close').onclick = () => {
     	fav_list.removeChild(clone);
-    	localStorage.removeItem(clone.querySelector(".favorites_item_header h3").textContent.toLowerCase());
+    	localStorage.removeItem(clone.querySelector(".favorite_item_title h2").textContent.toLowerCase());
 	};
 }
 
 console.log(localStorage)
 
+function add_previous(){
+	if(localStorage.length !== 0){
+		for (let i = 0; i < localStorage.length; i++) {
+			add_city(localStorage.key(i));
+		}
+	}	
+}
+
 function refreshPage(){
-    window.location.reload();
+    getGeo();
 } 
+
+add_previous();
 
 
 

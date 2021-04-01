@@ -13,7 +13,7 @@
 <body>
 	<header>
 			<h1 class="header_title">Погода здесь</h1>
-			<form action="#!" class="header_form">
+			<form class="header_form">
 				<button class="refresh" onclick="refreshPage()">
 					<h3 class="refresh_button_text"> Обновить геолокацию </h3>
 					<img class="refresh_button_img" src="./img/refresh.png" width="25" height="25">
@@ -24,32 +24,36 @@
 	
 	<main>
 	<div class="wrapper">
+		<div class="loader">
+			<img src="img/loader.svg">
+		</div>
+		
 		<section class="geo_city">
 			<div class="geo_city_info">
 			
-				<h2 class="geo_city_title">Санкт-Петербург</h2>
-				<img src="img/weather/m-cloudy.png" alt="Погода" class="geo_city_img">
+				<h2 class="geo_city_title"></h2>
+				<img class="geo_city_img">
 				<span class="temperature">
-						8&#176;C
+						
 				</span>
 			</div>
 			
 			<div class="geo_city_specs">
 				<ul class="specs_list">
 						<li class="specs_item">
-							Ветер <span class="wind"> Легкий ветер, 2 м/с, С\З</span>
+							Ветер <span class="wind"></span>
 						</li>
 						<li class="specs_item">
-							Облачность <span class="cloud">Облачно</span>
+							Облачность <span class="cloud"></span>
 						</li>
 						<li class="specs_item">
-							Давление <span class="pressure"> 716 мм.рт.ст.</span>
+							Давление <span class="pressure"> </span>
 						</li>
 						<li class="specs_item">
-							Влажность <span class="humidity"> 208&#176;</span>
+							Влажность <span class="humidity"> </span>
 						</li>
 						<li class="specs_item">
-							Координаты <span class="coordinates"> [ 59.62, 30.22 ]</span>
+							Координаты <span class="coordinates"> </span>
 						</li>
 					</ul>
 				
@@ -61,145 +65,53 @@
 			<h2 class="favorite_title">Избранное</h2>
 			<form action="#!" class="favorite_form">
 				<input type="text" placeholder="Добавить новый город" class="favorites_form_input">
-				<button class="add">
+				<button class="add" onClick="add_favorites()">
 					+
 				</button>
 			</form>
 		</section>
+		
+		
 		<section class="favorite">
 		
 			<ul class="favorite_list">
-				
-				<li class="favorite_item">
-					<div class="favorite_item_title">
-						<h2>Санкт-Петербург</h2>
-						<span class="f_temperature">
-							8&#176;C
-						</span>
-						<img src="img/weather/blizzard.png" alt="Погода" class="favorite_city_img">
-						<button class="close">х</button>
-					</div>
-					
-					<div class="favorite_city_specs">
-						<ul class="specs_list">
-								<li class="specs_item">
-									Ветер <span class="wind"> Легкий ветер, 2 м/с, С\З</span>
-								</li>
-								<li class="specs_item">
-									Облачность <span class="cloud">Облачно</span>
-								</li>
-								<li class="specs_item">
-									Давление <span class="pressure"> 716 мм.рт.ст.</span>
-								</li>
-								<li class="specs_item">
-									Влажность <span class="humidity"> 208&#176;</span>
-								</li>
-								<li class="specs_item">
-									Координаты <span class="coordinates"> [ 59.62, 30.22 ]</span>
-								</li>
-						</ul>
-					</div>
-				</li>
-				
-				<li class="favorite_item">
-					<div class="favorite_item_title">
-						<h2>Санкт-Петербург</h2>
-						<span class="f_temperature">
-							8&#176;C
-						</span>
-						<img src="img/weather/blizzard.png" alt="Погода" class="favorite_city_img">
-						<button class="close">х</button>
-					</div>
-					
-					<div class="favorite_city_specs">
-						<ul class="specs_list">
-								<li class="specs_item">
-									Ветер <span class="wind"> Легкий ветер, 2 м/с, С\З</span>
-								</li>
-								<li class="specs_item">
-									Облачность <span class="cloud">Облачно</span>
-								</li>
-								<li class="specs_item">
-									Давление <span class="pressure"> 716 мм.рт.ст.</span>
-								</li>
-								<li class="specs_item">
-									Влажность <span class="humidity"> 208&#176;</span>
-								</li>
-								<li class="specs_item">
-									Координаты <span class="coordinates"> [ 59.62, 30.22 ]</span>
-								</li>
-						</ul>
-					</div>
-				</li>
-				
-				<li class="favorite_item">
-					<div class="favorite_item_title">
-						<h2>Санкт-Петербург</h2>
-						<span class="f_temperature">
-							8&#176;C
-						</span>
-						<img src="img/weather/blizzard.png" alt="Погода" class="favorite_city_img">
-						<button class="close">х</button>
-					</div>
-					
-					<div class="favorite_city_specs">
-						<ul class="specs_list">
-								<li class="specs_item">
-									Ветер <span class="wind"> Легкий ветер, 2 м/с, С\З</span>
-								</li>
-								<li class="specs_item">
-									Облачность <span class="cloud">Облачно</span>
-								</li>
-								<li class="specs_item">
-									Давление <span class="pressure"> 716 мм.рт.ст.</span>
-								</li>
-								<li class="specs_item">
-									Влажность <span class="humidity"> 208&#176;</span>
-								</li>
-								<li class="specs_item">
-									Координаты <span class="coordinates"> [ 59.62, 30.22 ]</span>
-								</li>
-						</ul>
-					</div>
-				</li>
-				
-				<li class="favorite_item">
-					<div class="favorite_item_title">
-						<h2>Санкт-Петербург</h2>
-						<span class="f_temperature">
-							8&#176;C
-						</span>
-						<img src="img/weather/blizzard.png" alt="Погода" class="favorite_city_img">
-						<button class="close">х</button>
-					</div>
-					
-					<div class="favorite_city_specs">
-						<ul class="specs_list">
-								<li class="specs_item">
-									Ветер <span class="wind"> Легкий ветер, 2 м/с, С\З</span>
-								</li>
-								<li class="specs_item">
-									Облачность <span class="cloud">Облачно</span>
-								</li>
-								<li class="specs_item">
-									Давление <span class="pressure"> 716 мм.рт.ст.</span>
-								</li>
-								<li class="specs_item">
-									Влажность <span class="humidity"> 208&#176;</span>
-								</li>
-								<li class="specs_item">
-									Координаты <span class="coordinates"> [ 59.62, 30.22 ]</span>
-								</li>
-						</ul>
-					</div>
-				</li>
-
-
+				<template id="favorite_card">
+					<li class="favorite_item">
+						<div class="favorite_item_title">
+							<h2></h2>
+							<span class="f_temperature">
+								
+							</span>
+							<img src="img/weather/blizzard.png" alt="Погода" class="favorite_city_img">
+							<button class="close">х</button>
+						</div>
+						
+						<div class="favorite_city_specs">
+							<ul class="specs_list">
+									<li class="specs_item">
+										Ветер <span class="wind"> </span>
+									</li>
+									<li class="specs_item">
+										Облачность <span class="cloud"></span>
+									</li>
+									<li class="specs_item">
+										Давление <span class="pressure"> </span>
+									</li>
+									<li class="specs_item">
+										Влажность <span class="humidity"> </span>
+									</li>
+									<li class="specs_item">
+										Координаты <span class="coordinates"> </span>
+									</li>
+							</ul>
+						</div>
+					</li>
+				</template>
 			</ul>
 		</section>
-		
-		
 	</div>	
+	
+
 	</main>
 
 </body>
