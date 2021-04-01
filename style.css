@@ -24,8 +24,8 @@ header {
 .loader{
 	display: none;
 	visibility: hidden;
-	position: relative;
-	left: 25%;
+	width: 180px; 
+    margin: 0 auto;
 }
 
 .refresh_button_text{

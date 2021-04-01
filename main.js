@@ -168,7 +168,8 @@ function add_previous(){
 		for (let i = 0; i < localStorage.length; i++) {
 			add_city(localStorage.key(i));
 		}
-	}	
+	}
+	else{}	
 }
 
 function refreshPage(){
