@@ -8,7 +8,7 @@ window.onload = function() {
   var geo = function(position) {
     startPos = position;
     lat = document.getElementById('startLat').textContent = startPos.coords.latitude;
-    lon = document.getElementById('startLon').textContent = startPos.coords.longitude;
+    lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
   };
 }
 
@@ -28,7 +28,7 @@ function geoFindMe() {
 		.then(function(data){
 			
 			document.querySelector('.geo_city_title').textContent = data.name;
-			document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + '&deg;C'; 
+			document.querySelector('.temperature').innerHTML = Math.round(data.main.temperature - 273) + '&deg;C'; 
 			document.querySelector('.wind').textContent = (data.wind.speed) + ' м/с, ' + convertWind(data.wind.deg);
 			document.querySelector('.cloud').textContent = (data.clouds.all) + '%' ;
 			document.querySelector('.pressure').textContent = (data.main.pressure) + ' мм.рт.ст.' ;
