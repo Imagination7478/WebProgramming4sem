@@ -5,10 +5,9 @@ window.onload = function() {
   var startPos;
   var geoSuccess = function(position) {
 	startPos = position;
-
-	lat = document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-    lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
 	
+	var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
 	
 	console.log(lat);
 	console.log(lon);
