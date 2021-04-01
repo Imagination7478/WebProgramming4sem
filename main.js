@@ -1,15 +1,20 @@
 const api_key = 'bed950b3229a2b9bc8677bb8c28d5508';
 
 geoFindMe()
-
+var lat;
+var lon;
+window.onload = function() {
+  var startPos;
+  lat = document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+  lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+	
+}
 
 function geoFindMe() {
   var startPos;
   var geoSuccess = function(position) {
 	startPos = position;
 	
-	var lat = document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-    var lon = document.getElementById('startLon').innerHTML = startPos.coords.longitude;
 	
 	console.log(lat);
 	console.log(lon);
