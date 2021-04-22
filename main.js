@@ -1,9 +1,9 @@
-var result;
+const result;
 const api_key = 'bed950b3229a2b9bc8677bb8c28d5508';
 const weather = {};
 
-var main_city;
-var loader;
+let main_city;
+let loader;
 window.onload = function() {
     getGeo();
 }
@@ -29,10 +29,10 @@ function getGeo(){
 }
 
 async function geolocationSuccess(position) {
-	CoordLink = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${api_key}&lang=ru`;
+	CoordLink = `https://weather-server-web6sem.herokuapp.com/`;
 	
 	try{
-		await fetch(CoordLink);
+		await fetch(CoordLink + 'weather/coordinates?lat=${position.coords.latitude}&lon=${position.coords.longitude}');
 	}
 	catch(err){
 		window.alert('Невозможно получить данные. Код ошибки: ' + err);
@@ -40,8 +40,8 @@ async function geolocationSuccess(position) {
 	
 	fetch(CoordLink)
 		.then(function(resp) {return resp.json()})
-		.catch(function(err){window.alert('Невозможно получить данные. Код ошибки: ' + err);}]
-		.then(function(data){
+		// .catch(function(err) {window.alert('Невозможно получить данные. Код ошибки: ' + err);}
+		.then(function(data) {
 			
 			document.querySelector('.geo_city_title').textContent = data.name;
 			document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + '&deg;C'; 
@@ -56,9 +56,9 @@ async function geolocationSuccess(position) {
 		
 		main_city.style.display = "grid";
 		loader.style.display = "none";
-		loader.style.visibility = "hidden";	
+		loader.style.visibility = "hidden";
 		
-}
+	}
 
 function geolocationFailure(positionError) {
 	if(positionError.code == 1) {
