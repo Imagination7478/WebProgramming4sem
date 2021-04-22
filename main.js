@@ -5,7 +5,6 @@ const weather = {};
 var main_city;
 var loader;
 window.onload = function() {
-
     getGeo();
 }
 
@@ -29,11 +28,19 @@ function getGeo(){
 	}
 }
 
-function geolocationSuccess(position) {
+async function geolocationSuccess(position) {
 	CoordLink = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${api_key}&lang=ru`;
+	
+	try{
+		await fetch(CoordLink);
+	}
+	catch(err){
+		window.alert('Невозможно получить данные. Код ошибки: ' + err);
+	}
 	
 	fetch(CoordLink)
 		.then(function(resp) {return resp.json()})
+		.catch(function(err){window.alert('Невозможно получить данные. Код ошибки: ' + err);}]
 		.then(function(data){
 			
 			document.querySelector('.geo_city_title').textContent = data.name;
@@ -49,7 +56,8 @@ function geolocationSuccess(position) {
 		
 		main_city.style.display = "grid";
 		loader.style.display = "none";
-		loader.style.visibility = "hidden";
+		loader.style.visibility = "hidden";	
+		
 }
 
 function geolocationFailure(positionError) {
