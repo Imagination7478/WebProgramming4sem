@@ -1,4 +1,4 @@
-const result;
+let result;
 const api_key = 'bed950b3229a2b9bc8677bb8c28d5508';
 const weather = {};
 
@@ -28,11 +28,11 @@ function getGeo(){
 	}
 }
 
-async function geolocationSuccess(position) {
+function geolocationSuccess(position) {
 	CoordLink = `https://weather-server-web6sem.herokuapp.com/`;
 	
 	try{
-		await fetch(CoordLink + 'weather/coordinates?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude);
+		fetch(CoordLink + 'weather/coordinates?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude);
 	}
 	catch(err){
 		window.alert('Невозможно получить данные. Код ошибки: ' + err);
