@@ -32,7 +32,7 @@ async function geolocationSuccess(position) {
 	CoordLink = `https://weather-server-web6sem.herokuapp.com/`;
 	
 	try{
-		await fetch(CoordLink + 'weather/coordinates?lat=${position.coords.latitude}&lon=${position.coords.longitude}');
+		await fetch(CoordLink + 'weather/coordinates?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude);
 	}
 	catch(err){
 		window.alert('Невозможно получить данные. Код ошибки: ' + err);
