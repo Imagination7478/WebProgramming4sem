@@ -38,7 +38,7 @@ function geolocationSuccess(position) {
 		window.alert('Невозможно получить данные. Код ошибки: ' + err);
 	}
 	
-	fetch(CoordLink + 'weather/coordinates?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude)
+	const response = fetch(CoordLink + 'weather/coordinates?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude)
 		.then(function(resp) {return resp.json()})
 		// .catch(function(err) {window.alert('Невозможно получить данные. Код ошибки: ' + err);}
 		.then(function(data) {
@@ -53,6 +53,8 @@ function geolocationSuccess(position) {
 			document.querySelector('.geo_city_img').src = "https://openweathermap.org/img/wn/" + (data.weather[0].icon) + "@2x.png";
 		}
 		)
+
+		console.log(response)
 		
 		main_city.style.display = "grid";
 		loader.style.display = "none";
