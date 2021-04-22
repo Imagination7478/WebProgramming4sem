@@ -38,7 +38,7 @@ async function geolocationSuccess(position) {
 		window.alert('Невозможно получить данные. Код ошибки: ' + err);
 	}
 	
-	fetch(CoordLink)
+	fetch(CoordLink + 'weather/coordinates?lat=${position.coords.latitude}&lon=${position.coords.longitude}')
 		.then(function(resp) {return resp.json()})
 		// .catch(function(err) {window.alert('Невозможно получить данные. Код ошибки: ' + err);}
 		.then(function(data) {
