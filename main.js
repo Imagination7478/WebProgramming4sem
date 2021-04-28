@@ -54,7 +54,6 @@ function geolocationSuccess(position) {
 		}
 		)
 
-		console.log(response)
 		
 		main_city.style.display = "grid";
 		loader.style.display = "none";
