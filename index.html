@@ -24,7 +24,7 @@
 	
 	<main>
 	<div class="wrapper">
-		<div class="loader">
+		<div class="loaderMain">
 			<img src="img/loader.svg">
 		</div>
 		
@@ -65,13 +65,16 @@
 			<h2 class="favorite_title">Избранное</h2>
 			<form action="#!" class="favorite_form">
 				<input type="text" placeholder="Добавить новый город" class="favorites_form_input">
-				<button class="add" onClick="add_favorites()">
+				<button class="add" onClick="addFavorites()">
 					+
 				</button>
 			</form>
 		</section>
 		
-		
+		<div class="loaderFav">
+			<img src="img/loader.svg">
+		</div>
+
 		<section class="favorite">
 		
 			<ul class="favorite_list">

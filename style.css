@@ -21,7 +21,14 @@ header {
 	margin-bottom: 20px;
 }
 
-.loader{
+.loaderMain{
+	display: none;
+	visibility: hidden;
+	width: 180px; 
+    margin: 0 auto;
+}
+
+.loaderFav{
 	display: none;
 	visibility: hidden;
 	width: 180px; 
