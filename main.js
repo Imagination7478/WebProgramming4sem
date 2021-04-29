@@ -152,7 +152,7 @@ function addCity(city){
 function displayFav(){
 	const template = document.querySelector('#favorite_card');
 
-	const City = template.content.querySelector(".favorite_item_title h2");
+	const City = template.content.querySelector(".favorite_item_title h3");
 	const Icon = template.content.querySelector(".favorite_city_img");
 	const Temp = template.content.querySelector(".f_temperature");
 	const Wind = template.content.querySelector(".wind");
@@ -181,7 +181,7 @@ function displayFav(){
 		if(localStorage.length !== 0){
 			for (let i = 0; i < localStorage.length; i++) {
 				const curInStorage = localStorage.getItem(localStorage.key(i));
-				const current = clone.querySelector(".favorite_item_title h2").textContent.toLowerCase();
+				const current = clone.querySelector(".favorite_item_title h3").textContent.toLowerCase();
 				
 				if(curInStorage == current){
 					localStorage.removeItem(localStorage.key(i));
