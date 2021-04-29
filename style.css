@@ -149,14 +149,18 @@ header {
 	margin-top: 20px;
 	font-size: 14px;
 	background-color: #fcfefc;
-	padding: 5px 20px;
-	
+	padding: 5px 20px;	
 }
+
 .add {
-	
+	font-family: 'Rubik';
 	font-size: 18px;
+	border: 0;
 	border-radius: 50%;
 	background-color: #fcfefc;
+	position: relative;
+	height:25px;
+    width:25px;
 }
 
 
@@ -176,8 +180,9 @@ header {
 	font-family: 'Rubik';
 	font-size: 15px;
 	font-weight: bold;
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: 3fr 3fr 4fr 1fr;
+	justify-content: center;
 	background-color: #fcfefc;
 	padding: 10px;
 	border-radius: 15px;
@@ -189,6 +194,7 @@ header {
 }
 
 .f_temperature{
+	padding-left: 20px;
 	position: relative;
 	font-family: 'Rubik';
 	font-size: 30px;
@@ -200,15 +206,19 @@ header {
 .close {
 	font-family: 'Rubik';
 	font-size: 18px;
-	padding-left: 6px;
+	border: 0;
 	border-radius: 50%;
 	background-color: #fcfefc;
 	position: relative;
-	bottom: 20px;
-	margin-top: 30px;
+	height:25px;
+    width:25px;
 }
 
 @media screen and (max-width: 1160px) {
+
+	.favorites_form_input {
+		width: 500px;
+	}
 
 	.add_favorite {
 		display: grid;
@@ -246,13 +256,22 @@ header {
 	
 
 @media screen and (max-width: 800px) {
-	
+	.favorites_form_input {
+		width: 300px;
+	}
 	.header_title{
 		margin-left: 50px;
 	}
 }
 
 @media screen and (max-width: 500px) {
+	.wrapper{
+		max-width: 100%;
+	}
+
+	.favorites_form_input {
+		width: 160px;
+	}
 	.header_title{
 		font-size: 22px;
 	}
@@ -297,9 +316,6 @@ header {
 		weight: 30%;
 	}
 	
-	.wrapper{
-		max-width: 100%;
-	}
 	header {
 		max-height: 90px;
 	}
